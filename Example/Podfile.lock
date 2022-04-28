@@ -1,0 +1,16 @@
+PODS:
+  - XLAlertMessage (0.0.1)
+
+DEPENDENCIES:
+  - XLAlertMessage (from `../`)
+
+EXTERNAL SOURCES:
+  XLAlertMessage:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  XLAlertMessage: fd57e8f92d0ba3d0eb803b09127dbfab6f64e099
+
+PODFILE CHECKSUM: 292048cd5aab996c71e75d7984a897b9872551a0
+
+COCOAPODS: 1.11.3
