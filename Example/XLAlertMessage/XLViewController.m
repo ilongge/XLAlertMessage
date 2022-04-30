@@ -21,7 +21,7 @@
 }
 
 - (IBAction)showMessage:(id)sender {
-    ShowMsgWithDuration(@"aisdhfpasidhfpashdfpi", 5)
+    ShowMsgWithDuration(@"XLAlertMessage，显示5秒", 5)
 }
 
 - (void)didReceiveMemoryWarning
