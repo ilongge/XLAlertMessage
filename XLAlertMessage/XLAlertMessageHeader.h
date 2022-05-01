@@ -14,19 +14,25 @@
 #define XLScreenWidth  ([UIScreen mainScreen].bounds.size.width)
 #define XLScreenHeight ([UIScreen mainScreen].bounds.size.height)
 
-#define XLBoldFontName                    @"PingFang-SC-Medium"
 #define XLFontName                        @"PingFang-SC-Regular"
+#define XLFontSize                        14
+
+#define ShowMessageTime                   3
 
 /**
  加到keywindow上的提示
  */
-#define ShowMsg(msg) \
+
+#define XLAlertMsg(msg) \
 {[XLAlertMessage showAlertMessage:[NSString stringWithFormat:@"%@", msg] andButtomHeight:XLScreenHeight/2];}
+
+#define XLAlertFormat(FORMAT, ...) \
+{[XLAlertMessage showAlertMessage:[NSString stringWithFormat: FORMAT, ## __VA_ARGS__] andButtomHeight:XLScreenHeight/2];}
 
 /**
  加到keywindow上可以设置显示时间的提示
  */
-#define ShowMsgWithDuration(msg,duration) \
+#define XLAlertDuration(msg, duration) \
 {[XLAlertMessage showAlertMessageWithDuration:duration andMessage:[NSString stringWithFormat:@"%@", msg] andBottomHeight:XLScreenHeight/2];}
 
 #endif /* XLAlertMessageHeader_h */

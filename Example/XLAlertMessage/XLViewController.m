@@ -21,7 +21,9 @@
 }
 
 - (IBAction)showMessage:(id)sender {
-    ShowMsgWithDuration(@"XLAlertMessage，显示5秒", 5)
+    XLAlertMsg(@"XLAlertMessage")
+//    XLAlertFormat(@"XLAlertMessage, %d", 5)
+//    XLAlertDuration(@"XLAlertMessage，显示5秒", 5)
 }
 
 - (void)didReceiveMemoryWarning
