@@ -12,20 +12,38 @@
 /**
  在主window上的提示
  */
-+ (void)showAlertMessage:(NSString *)alertMessage
-         andButtomHeight:(CGFloat)buttomHeight;
++ (void)showAlertMessage:(NSString *)message
+         andBottomHeight:(CGFloat)bottomHeight;
+
++ (void)showAlertMessage:(NSString *)message
+         andBottomHeight:(CGFloat)bottomHeight
+      andBackgroundColor:(UIColor *)backgrounColor
+                 andFont:(UIFont *)font;
+
+/**
+ 在主window上显示的提示
+ */
++ (void)showAlertMessage:(NSString *)message
+         andBottomHeight:(CGFloat)bottomHeight
+             andDuration:(CGFloat)duration;
+
++ (void)showAlertMessage:(NSString *)message
+         andBottomHeight:(CGFloat)bottomHeight
+             andDuration:(CGFloat)duration
+      andBackgroundColor:(UIColor *)backgrounColor
+                 andFont:(UIFont *)font;
 
 /**
  加到当前window上的提示
  */
-+ (void)showAlertMessage:(NSString *)alertMessage
-         andButtomHeight:(CGFloat)buttomHeight
++ (void)showAlertMessage:(NSString *)message
+         andBottomHeight:(CGFloat)bottomHeight
          andCustomWindow:(UIWindow *)window;
-/**
- 在主window上显示的提示（新增显示时间参数）
- */
-+ (void)showAlertMessageWithDuration:(CGFloat)duration
-                          andMessage:(NSString *)message
-                     andBottomHeight:(CGFloat)bottomHeight;
+
++ (void)showAlertMessage:(NSString *)message
+         andBottomHeight:(CGFloat)bottomHeight
+         andCustomWindow:(UIWindow *)window
+      andBackgroundColor:(UIColor *)backgrounColor
+                 andFont:(UIFont *)font;
 
 @end

@@ -24,15 +24,15 @@
  */
 
 #define XLAlertMsg(msg) \
-{[XLAlertMessage showAlertMessage:[NSString stringWithFormat:@"%@", msg] andButtomHeight:XLScreenHeight/2];}
+{[XLAlertMessage showAlertMessage:[NSString stringWithFormat:@"%@", msg] andBottomHeight:XLScreenHeight/2];}
 
 #define XLAlertFormat(FORMAT, ...) \
-{[XLAlertMessage showAlertMessage:[NSString stringWithFormat: FORMAT, ## __VA_ARGS__] andButtomHeight:XLScreenHeight/2];}
+{[XLAlertMessage showAlertMessage:[NSString stringWithFormat: FORMAT, ## __VA_ARGS__] andBottomHeight:XLScreenHeight/2];}
 
 /**
  加到keywindow上可以设置显示时间的提示
  */
 #define XLAlertDuration(msg, duration) \
-{[XLAlertMessage showAlertMessageWithDuration:duration andMessage:[NSString stringWithFormat:@"%@", msg] andBottomHeight:XLScreenHeight/2];}
+{[XLAlertMessage showAlertMessage:[NSString stringWithFormat:@"%@", msg] andBottomHeight:XLScreenHeight/2 andDuration:duration];}
 
 #endif /* XLAlertMessageHeader_h */

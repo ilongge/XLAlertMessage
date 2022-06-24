@@ -21,7 +21,11 @@
 }
 
 - (IBAction)showMessage:(id)sender {
-    XLAlertMsg(@"XLAlertMessage")
+//    XLAlertMsg(@"XLAlertMessage")
+    [XLAlertMessage showAlertMessage:@"XLAlertMessage"
+                     andBottomHeight:XLScreenHeight/2
+                  andBackgroundColor:[UIColor redColor]
+                             andFont:[UIFont systemFontOfSize:35]];
 //    XLAlertFormat(@"XLAlertMessage, %d", 5)
 //    XLAlertDuration(@"XLAlertMessage，显示5秒", 5)
 }

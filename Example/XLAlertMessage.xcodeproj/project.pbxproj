@@ -42,6 +42,7 @@
 		82BE767824ABAEE86C3BDD51 /* Pods-XLAlertMessage_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLAlertMessage_Example.release.xcconfig"; path = "Target Support Files/Pods-XLAlertMessage_Example/Pods-XLAlertMessage_Example.release.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		93A171FA0E628FE8ECEDE9BE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		BA1335F02865589300DCAF07 /* package.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = package.sh; path = ../package.sh; sourceTree = "<group>"; };
 		BB8ACF4B401B140C3F992485 /* XLAlertMessage.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = XLAlertMessage.podspec; path = ../XLAlertMessage.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BCBA6C1C41F1D7CE758C352C /* Pods-XLAlertMessage_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLAlertMessage_Tests.release.xcconfig"; path = "Target Support Files/Pods-XLAlertMessage_Tests/Pods-XLAlertMessage_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		FC7DEAE71E6B46F7F1115FA2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -136,6 +137,7 @@
 		60FF7A9C1954A5C5007DD14C /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
+				BA1335F02865589300DCAF07 /* package.sh */,
 				BB8ACF4B401B140C3F992485 /* XLAlertMessage.podspec */,
 				93A171FA0E628FE8ECEDE9BE /* README.md */,
 				FC7DEAE71E6B46F7F1115FA2 /* LICENSE */,

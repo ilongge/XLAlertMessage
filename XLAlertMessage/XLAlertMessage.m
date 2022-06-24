@@ -68,76 +68,134 @@ static dispatch_once_t _onceToken = 0;
 /**
  在主window上的提示
  */
-+ (void)showAlertMessage:(NSString *)alertMessage
-         andButtomHeight:(CGFloat)buttomHeight {
++ (void)showAlertMessage:(NSString *)message
+         andBottomHeight:(CGFloat)bottomHeight {
+    
+    [XLAlertMessage showAlertMessage:message
+                     andBottomHeight:bottomHeight
+                  andBackgroundColor:nil
+                             andFont:nil];
+    
+    
+}
+
++ (void)showAlertMessage:(NSString *)message
+         andBottomHeight:(CGFloat)buttomHeight
+      andBackgroundColor:(UIColor *)backgrounColor
+                 andFont:(UIFont *)font {
     
     UIWindow * window = [[UIApplication sharedApplication].delegate window];
-    
-    [XLAlertMessage createAlertMessageWithDuration:ShowMessageTime
-                                        andMessage:alertMessage
-                                   andBottomHeight:buttomHeight
-                                         andWindow:window];
-    
+    [XLAlertMessage createAlertMessage:message
+                       andBottomHeight:buttomHeight
+                    andBackgroundColor:backgrounColor
+                               andFont:font
+                             andWindow:window
+                           andDuration:ShowMessageTime];
 }
 
 /**
  加到当前window上的提示
  */
-+ (void)showAlertMessage:(NSString *)alertMessage
-         andButtomHeight:(CGFloat)buttomHeight
++ (void)showAlertMessage:(NSString *)message
+         andBottomHeight:(CGFloat)bottomHeight
          andCustomWindow:(UIWindow*)window {
     
-    [XLAlertMessage createAlertMessageWithDuration:ShowMessageTime
-                                        andMessage:alertMessage
-                                   andBottomHeight:buttomHeight
-                                         andWindow:window];
+    [XLAlertMessage showAlertMessage:message
+                     andBottomHeight:bottomHeight
+                     andCustomWindow:window
+                  andBackgroundColor:nil
+                             andFont:nil];
+    
+}
+
++ (void)showAlertMessage:(NSString *)message
+         andBottomHeight:(CGFloat)bottomHeight
+         andCustomWindow:(UIWindow*)window
+      andBackgroundColor:(UIColor *)backgrounColor
+                 andFont:(UIFont *)font
+{
+    [XLAlertMessage createAlertMessage:message
+                       andBottomHeight:bottomHeight
+                    andBackgroundColor:backgrounColor
+                               andFont:font
+                             andWindow:window
+                           andDuration:ShowMessageTime];
     
 }
 
 /**
  在主window上显示的提示（新增显示时间参数）
  */
-+ (void)showAlertMessageWithDuration:(CGFloat)duration
-                          andMessage:(NSString *)message
-                     andBottomHeight:(CGFloat)bottomHeight {
++ (void)showAlertMessage:(NSString *)message
+         andBottomHeight:(CGFloat)bottomHeight
+             andDuration:(CGFloat)duration {
+    
+    [XLAlertMessage showAlertMessage:message
+                     andBottomHeight:bottomHeight
+                         andDuration:duration
+                  andBackgroundColor:nil
+                             andFont:nil];
+    
+}
+
++ (void)showAlertMessage:(NSString *)message
+         andBottomHeight:(CGFloat)bottomHeight
+             andDuration:(CGFloat)duration
+      andBackgroundColor:(UIColor *)backgrounColor
+                 andFont:(UIFont *)font {
     
     UIWindow * window = [[UIApplication sharedApplication].delegate window];
     
-    [XLAlertMessage createAlertMessageWithDuration:duration
-                                        andMessage:message
-                                   andBottomHeight:bottomHeight
-                                         andWindow:window];
+    [XLAlertMessage createAlertMessage:message
+                       andBottomHeight:bottomHeight
+                    andBackgroundColor:backgrounColor
+                               andFont:font
+                             andWindow:window
+                           andDuration:duration];
     
 }
 
 #pragma mark  ***************** 私有方法 / private function
 
 ///统一创建弹框视图
-+ (void)createAlertMessageWithDuration:(CGFloat)duration
-                            andMessage:(NSString *)message
-                       andBottomHeight:(CGFloat)bottomHeight
-                             andWindow:(UIWindow *)showWindow {
-    
++ (void)createAlertMessage:(NSString *)message
+           andBottomHeight:(CGFloat)bottomHeight
+        andBackgroundColor:(UIColor *)backgrounColor
+                   andFont:(UIFont *)font
+                 andWindow:(UIWindow *)showWindow
+               andDuration:(CGFloat)duration {
     
     XLAlertMessage *customMessageAlert = [XLAlertMessage sharedAlertMessage];
-    
-    [customMessageAlert createAlertMessageWithDuration:duration andMessage:message andBottomHeight:bottomHeight andWindow:showWindow];
+    UIColor *showBackgroundColor = backgrounColor;
+    if (showBackgroundColor) {
+        customMessageAlert.backgroundColor = showBackgroundColor;
+    }
+    UIFont *showFont = font;
+    if (showFont == nil) {
+        showFont = [UIFont fontWithName:XLFontName size:XLFontSize];
+    }
+    customMessageAlert.messageLabel.font = showFont;
+    [customMessageAlert createAlertMessage:message
+                           andBottomHeight:bottomHeight
+                                 andWindow:showWindow
+                               andDuration:duration];
 }
 
 ///统一创建弹框视图
-- (void)createAlertMessageWithDuration:(CGFloat)duration
-                            andMessage:(NSString *)message
-                       andBottomHeight:(CGFloat)bottomHeight
-                             andWindow:(UIWindow *)showWindow
+- (void)createAlertMessage:(NSString *)message
+           andBottomHeight:(CGFloat)bottomHeight
+                 andWindow:(UIWindow *)showWindow
+               andDuration:(CGFloat)duration
 {
     
-    CGFloat messageHeight = [XLAlertMessage getStringHeight:message andFont:[UIFont fontWithName:XLFontName size:XLFontSize] andWidth:XLScreenWidth-20];
-    CGFloat messageWidth = [XLAlertMessage getStringWidth:message andFont:[UIFont fontWithName:XLFontName size:XLFontSize] andHeight:messageHeight];
+    
+    CGFloat messageHeight = [XLAlertMessage getStringHeight:message andFont:self.messageLabel.font andWidth:XLScreenWidth-20];
+    CGFloat messageWidth = [XLAlertMessage getStringWidth:message andFont:self.messageLabel.font andHeight:messageHeight];
     
     if (messageWidth > XLScreenWidth-20) {
         messageWidth = XLScreenWidth-20;
     }
-
+    
     self.countDown = 0;
     self.startCount = 0;
     self.duration = duration;
@@ -158,7 +216,7 @@ static dispatch_once_t _onceToken = 0;
     if (self.countDown == self.startCount + self.duration) {
         [self hideAlertMessage];
     }
- 
+    
     self.countDown ++;
 }
 
@@ -214,10 +272,6 @@ static dispatch_once_t _onceToken = 0;
     }];
 }
 
-- (void)dealloc
-{
-    NSLog(@"XLAlertMessage dealloc");
-}
 #pragma mark ***************** 计算尺寸 / Calcul
 
 + (CGFloat)getStringWidth:(NSString *)string andFont:(UIFont*)font andHeight:(CGFloat)height {

@@ -1,8 +1,7 @@
-use_frameworks!
+source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '9.0'
-
 target 'XLAlertMessage_Example' do
+  use_frameworks!
   pod 'XLAlertMessage', :path => '../'
- 
 end
