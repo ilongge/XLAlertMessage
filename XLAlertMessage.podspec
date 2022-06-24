@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'XLAlertMessage'
-  s.version          = '0.0.3'
+  s.version          = '0.0.3.1'
   s.summary          = 'A short description of XLAlertMessage.'
 
   s.homepage         = 'https://gitee.com/ilongge/xlalertmessage'

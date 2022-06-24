@@ -1,5 +1,5 @@
 PODS:
-  - XLAlertMessage (0.0.3)
+  - XLAlertMessage (0.0.3.1)
 
 DEPENDENCIES:
   - XLAlertMessage (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  XLAlertMessage: 21d1ed2bba00890b0ac7d728737aa9e058808e2d
+  XLAlertMessage: 189ea15299a7840626271f7950fa85d23b598b70
 
 PODFILE CHECKSUM: 0f1c73f9505886bf19e85c9032f00f6380d7ce1c
 

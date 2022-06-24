@@ -23,7 +23,7 @@
 - (IBAction)showMessage:(id)sender {
 //    XLAlertMsg(@"XLAlertMessage")
     [XLAlertMessage showAlertMessage:@"XLAlertMessage"
-                     andBottomHeight:XLScreenHeight/2
+                     andBottomHeight:XLScreenHeight/3.0
                   andBackgroundColor:[UIColor redColor]
                              andFont:[UIFont systemFontOfSize:35]];
 //    XLAlertFormat(@"XLAlertMessage, %d", 5)

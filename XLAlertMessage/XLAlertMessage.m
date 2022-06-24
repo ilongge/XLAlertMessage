@@ -80,13 +80,13 @@ static dispatch_once_t _onceToken = 0;
 }
 
 + (void)showAlertMessage:(NSString *)message
-         andBottomHeight:(CGFloat)buttomHeight
+         andBottomHeight:(CGFloat)bottomHeight
       andBackgroundColor:(UIColor *)backgrounColor
                  andFont:(UIFont *)font {
     
     UIWindow * window = [[UIApplication sharedApplication].delegate window];
     [XLAlertMessage createAlertMessage:message
-                       andBottomHeight:buttomHeight
+                       andBottomHeight:bottomHeight
                     andBackgroundColor:backgrounColor
                                andFont:font
                              andWindow:window
@@ -199,7 +199,11 @@ static dispatch_once_t _onceToken = 0;
     self.countDown = 0;
     self.startCount = 0;
     self.duration = duration;
-    [self showAlertMessage:message andWidth:messageWidth andHeight:messageHeight andWindow:showWindow];
+    [self showAlertMessage:message
+                  andWidth:messageWidth
+                 andHeight:messageHeight
+           andBottomHeight:bottomHeight
+                 andWindow:showWindow];
     
     if (self.alertTimer == nil) {
         self.alertTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
@@ -224,6 +228,7 @@ static dispatch_once_t _onceToken = 0;
 - (void)showAlertMessage:(NSString *)message
                 andWidth:(CGFloat)messageWidth
                andHeight:(CGFloat)messageHeight
+         andBottomHeight:(CGFloat)bottomHeight
                andWindow:(UIWindow *)showWindow {
     
     self.startCount = self.countDown;
@@ -233,7 +238,7 @@ static dispatch_once_t _onceToken = 0;
                             messageWidth+20,
                             messageHeight+20);
     
-    self.center = showWindow.center;
+    self.center = CGPointMake(showWindow.center.x, showWindow.frame.size.height - (bottomHeight + messageHeight / 2.0)) ;
     
     self.messageLabel.text = message;
     
