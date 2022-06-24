@@ -53,9 +53,9 @@ function PodLintSpec() {
 
 function PodRepoPush() {
 
-    echo "pod $PodVersion repo push JFAISDKSpec $Spec --allow-warnings "
+    echo "pod $PodVersion repo trunk push $Spec --allow-warnings "
 
-    Push_Result=$(pod $PodVersion repo push JFAISDKSpec $Spec --allow-warnings)
+    Push_Result=$(pod $PodVersion trunk push $Spec --allow-warnings)
 }
 
 function PodRepoUpdate() {
